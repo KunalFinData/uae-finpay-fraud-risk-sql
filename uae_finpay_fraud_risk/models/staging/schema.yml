@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: >
+      Cleaned and standardised UAE FinPay transactions.
+      Source: IEEE-CIS Fraud Detection dataset with UAE
+      staging layer. Internal escalation flags are
+      operational monitoring triggers only per
+      CBUAE 2026 guidance. NOT SAR/STR thresholds.
+    columns:
+      - name: transaction_id
+        description: Unique transaction identifier
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - not_null
+      - name: amount_aed
+        description: Transaction amount in UAE Dirhams
+        tests:
+          - not_null
+      - name: emirate
+        description: UAE emirate of transaction
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['DUBAI', 'ABU DHABI', 'SHARJAH',
+                       'AJMAN', 'RAS AL KHAIMAH']
+      - name: kyc_status
+        description: Customer KYC verification status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['verified', 'pending', 'rejected']
+      - name: is_fraud
+        description: Fraud flag. 1=fraud, 0=legitimate
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+      - name: internal_escalation_40k
+        description: >
+          Internal operational monitoring flag for
+          transactions above AED 40,000.
+          NOT a SAR/STR threshold per CBUAE 2026 guidance.
+          Federal Decree-Law No.10/2025 uses
+          suspicion-based reporting only.
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+      - name: internal_escalation_100k
+        description: >
+          Internal operational monitoring flag for
+          transactions above AED 100,000.
+          NOT a SAR/STR threshold per CBUAE 2026 guidance.
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+  - name: stg_customers
+    description: >
+      Customer-level aggregated metrics derived from
+      stg_transactions. Used for segmentation,
+      risk profiling and fraud analysis.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - unique
+          - not_null
+      - name: total_transactions
+        description: Total number of transactions
+        tests:
+          - not_null
+      - name: fraud_rate_pct
+        description: Percentage of transactions that are fraud
+        tests:
+          - not_null

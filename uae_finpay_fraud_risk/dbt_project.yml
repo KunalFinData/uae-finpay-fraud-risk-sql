@@ -1,0 +1,24 @@
+name: 'uae_finpay_fraud_risk'
+version: '1.0.0'
+config-version: 2
+
+profile: 'uae_finpay_fraud_risk'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  uae_finpay_fraud_risk:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
