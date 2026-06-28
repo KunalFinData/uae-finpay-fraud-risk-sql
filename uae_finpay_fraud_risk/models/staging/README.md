@@ -8,6 +8,7 @@ and payment channel intelligence to reduce fraud exposure and
 improve operational efficiency.
 
 ## Data Lineage
+
 Raw Layer (IEEE-CIS Fraud Detection — Kaggle)
 
 ↓
@@ -59,5 +60,4 @@ including Federal Decree-Law No.10/2025 and Cabinet Resolution No.134/2025.
 https://github.com/KunalFinData/uae-finpay-fraud-risk-sql
 
 ## LinkedIn
-https://www.linkedin.com/in/kunalsharma0425
-
+www.linkedin.com/in/kunalsharma0425
