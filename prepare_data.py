@@ -189,7 +189,31 @@ final_df.to_sql(
     name='transactions',
     schema='raw',
     con=engine,
-    if_exists='replace',
+"""
+UAE FinPay Data Preparation Script
+===================================
+Purpose: Samples 100,000 rows from IEEE-CIS Fraud Detection
+         dataset and creates UAE staging layer with:
+         - AED currency conversion (USD x 3.67)
+         - UAE emirate distribution
+         - KYC status classification
+         - Internal escalation flags (operational monitoring only)
+         - Payment channel categorisation
+
+Dataset: IEEE-CIS Fraud Detection (Kaggle)
+Output:  raw.transactions table in payment_risk_db PostgreSQL
+
+CBUAE Note: Internal escalation flags (AED 40k/100k) are
+operational monitoring triggers only. NOT SAR/STR thresholds.
+Per Federal Decree-Law No.10/2025 reporting is suspicion-based.
+
+Author: Kunal Sharma
+Date:   June 2026
+"""    
+
+
+
+if_exists='replace',
     index=False,
     chunksize=5000
 )
