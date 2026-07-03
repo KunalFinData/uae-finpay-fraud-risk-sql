@@ -54,29 +54,32 @@ PostgreSQL 17 | dbt Core 1.11 | Python | GitHub
 | fct_behavior_risk_flags | CBUAE 2026 behavior-based detection |
 
 ## Project Structure
+
+```
 uae-finpay-fraud-risk-sql/
 ├── README.md
 ├── COMPLIANCE.md
 ├── data_dictionary.md
 ├── prepare_data.py
 ├── lineage.png
+├── .gitignore
 └── uae_finpay_fraud_risk/
-├── dbt_project.yml
-└── models/
-├── staging/
-│   ├── stg_transactions.sql
-│   ├── stg_customers.sql
-│   └── schema.yml
-└── marts/
-├── fct_fraud_risk_scorecard.sql
-├── fct_false_positive_rate.sql
-├── fct_customer_segments.sql
-├── fct_high_value_fraud_exposure.sql
-├── fct_payment_channel_performance.sql
-├── fct_monthly_fraud_trend.sql
-├── fct_merchant_category_analysis.sql
-└── fct_behavior_risk_flags.sql
-
+    ├── dbt_project.yml
+    └── models/
+        ├── staging/
+        │   ├── stg_transactions.sql
+        │   ├── stg_customers.sql
+        │   └── schema.yml
+        └── marts/
+            ├── fct_fraud_risk_scorecard.sql
+            ├── fct_false_positive_rate.sql
+            ├── fct_customer_segments.sql
+            ├── fct_high_value_fraud_exposure.sql
+            ├── fct_payment_channel_performance.sql
+            ├── fct_monthly_fraud_trend.sql
+            ├── fct_merchant_category_analysis.sql
+            └── fct_behavior_risk_flags.sql
+```
 ## Regulatory Framework
 See COMPLIANCE.md for full CBUAE 2026 regulatory references
 including Federal Decree-Law No.10/2025 and Cabinet Resolution No.134/2025.
