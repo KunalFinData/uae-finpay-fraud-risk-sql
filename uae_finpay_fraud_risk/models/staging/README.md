@@ -31,12 +31,17 @@ GitHub (version controlled, documented, tested)
 PostgreSQL 17 | dbt Core 1.11 | Python | GitHub
 
 ## Business Outcomes
-- Identified top 10% high-risk customers representing 38% of total fraud exposure
-- Wallet transactions carry 2.3x higher fraud rate than card
-- Ecommerce merchants show highest fraud concentration
-- Behavior-based detection flags structuring patterns and velocity anomalies per CBUAE 2026 guidance
+- High-value customers (top 20%) represent 89.69% of total fraud exposure
+  while being only 20% of customers — critical concentration risk
+- Bank transfer channel shows highest fraud rate at 8.14% in Abu Dhabi
+  vs wallet at 7.40% — contradicts card-first fraud assumptions
+- Ecommerce merchants show highest fraud concentration by category
+- Behavior-based detection flags structuring patterns and velocity
+  anomalies per CBUAE 2026 guidance
 - Monthly fraud trend analysis with month-on-month change tracking
-
+- HIGH_VALUE segment total fraud transactions: 7,175
+  vs STANDARD segment: 825 — 8.7x higher absolute fraud volume
+  s
 ## Key Models
 | Model | Business Question |
 |-------|------------------|
