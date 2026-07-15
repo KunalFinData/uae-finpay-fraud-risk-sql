@@ -151,18 +151,26 @@ While this project focuses on traditional payment transactions (fiat currency), 
 ## goAML Portal — UAE FIU Reporting Workflow
 
 ### Report Filing Process
+## Report Filing Process
 
-Alert Generated (via fct_behavior_risk_flags or fct_fraud_risk_scorecard)
+```
+Alert Generated
+(via fct_behavior_risk_flags or fct_fraud_risk_scorecard)
 ↓
-Compliance Analyst Review (within 3-5 business days)
+Compliance Analyst Review
+(within 3-5 business days)
 ↓
-Escalation to MLRO (if reasonable suspicion confirmed)
+Escalation to MLRO
+(if reasonable suspicion confirmed)
 ↓
-SAR/STR Preparation (within 10 business days)
+SAR/STR Preparation
+(within 10 business days)
 ↓
-Submission via goAML Portal (within regulatory deadlines)
+Submission via goAML Portal
+(within regulatory deadlines)
 ↓
 FIU Acknowledgment and Case Number Assignment
+```
 
 ### Data Quality Requirements (goAML)
 
