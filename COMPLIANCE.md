@@ -151,7 +151,6 @@ While this project focuses on traditional payment transactions (fiat currency), 
 ## goAML Portal — UAE FIU Reporting Workflow
 
 ### Report Filing Process
-## Report Filing Process
 
 ```
 Alert Generated
