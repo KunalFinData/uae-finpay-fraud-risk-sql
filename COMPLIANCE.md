@@ -32,6 +32,7 @@ This project aligns with the following CBUAE regulations and guidance:
 
 ---
 
+
 ### Critical Clarification — No Monetary Threshold
 
 > **SAR/STR filing is triggered by REASONABLE SUSPICION, not by transaction amount.**
@@ -40,10 +41,10 @@ This project aligns with the following CBUAE regulations and guidance:
 
 **Internal escalation flags (AED 40k and 100k) in this project are operational monitoring triggers only.** They are **NOT** SAR/STR thresholds per CBUAE 2026 guidance.
 
-**Why this matters:**
-- Many candidates incorrectly claim "transactions above AED 50k must be reported" — this is **false** and would fail an audit
-- CBUAE explicitly emphasizes **risk-based monitoring** — higher-value transactions may trigger enhanced review, but the **actual SAR/STR trigger is suspicion**, not amount
-- Internal thresholds (AED 40k/100k) help compliance teams **prioritize alerts** — but they don't replace human judgment
+**Operational Context:**
+- CBUAE emphasizes **risk-based monitoring** — higher-value transactions may trigger enhanced review, but the **actual SAR/STR trigger is suspicion**, not amount
+- Internal thresholds (AED 40k/100k) help compliance teams **prioritize alerts** for analyst review — but they don't replace human judgment or regulatory obligations
+- This project models AED 40k/100k flags as **operational tools** to focus analyst attention, not as regulatory filing triggers
 
 ---
 
