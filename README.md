@@ -239,15 +239,3 @@ See [`COMPLIANCE.md`](COMPLIANCE.md) for full CBUAE 2026 regulatory references i
 
 ---
 
-
-
- 
-## dbt Lineage Diagram
-![dbt Lineage](lineage.png)
-
-## GitHub
-https://github.com/KunalFinData/uae-finpay-fraud-risk-sql
-
-## LinkedIn
-https://www.linkedin.com/in/kunalsharma0425
-
