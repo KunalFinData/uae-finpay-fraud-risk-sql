@@ -84,5 +84,5 @@ For full regulatory context see COMPLIANCE.md
 
 ---
 
-Last Updated: July 2026
+Last Updated: June 2026
 Maintained By: Kunal Sharma — Financial Data Analyst
