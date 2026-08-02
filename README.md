@@ -105,21 +105,6 @@ GitHub (version controlled, documented, tested)
 ## Key Models
 
 | Model | Business Question |
-|---|---|
-| `fct_fraud_risk_scorecard` | Which customers carry the highest fraud risk? |
-| `fct_false_positive_rate` | How accurate are fraud rules across payment channels? |
-| `fct_customer_segments` | How should customers be segmented? |
-| `fct_high_value_fraud_exposure` | Where is fraud exposure concentrated? |
-| `fct_payment_channel_performance` | Which channels perform best and worst? |
-| `fct_monthly_fraud_trend` | How is fraud changing over time? |
-| `fct_merchant_category_analysis` | Which merchant categories require attention? |
-| `fct_behavior_risk_flags` | Which behavioural patterns indicate suspicious activity? |
-
----
-
-## Key Models
-
-| Model | Business Question |
 |-------|------------------|
 | `fct_fraud_risk_scorecard` | What is the risk score (0-100) for each customer? |
 | `fct_false_positive_rate` | What is the fraud model accuracy by payment channel? |
