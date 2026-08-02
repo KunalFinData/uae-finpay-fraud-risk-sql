@@ -35,9 +35,7 @@ A payment platform processing thousands of daily card, wallet, and bank transfer
 - How fraud trends evolve over time.
 - Which behavioural patterns require escalation for investigation.
 
-Without these insights, fraud investigations become reactive, resources are allocated inefficiently, and reporting to management becomes largely descriptive instead of risk-driven.
-
-This project builds a SQL-powered analytical layer that supports operational fraud monitoring and executive decision-making.
+Without these insights, fraud investigations become reactive, resources are allocated inefficiently, and reporting becomes descriptive rather than risk-driven. This project addresses those challenges by building a SQL-powered analytics layer that supports operational fraud monitoring and executive decision-making.
 
 ---
 
