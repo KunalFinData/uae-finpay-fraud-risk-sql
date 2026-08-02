@@ -10,8 +10,6 @@ This project builds a SQL-based fraud detection and payment analytics pipeline f
 
 The solution consists of 8 dbt mart models that answer key fraud analytics questions, including customer risk scoring, payment channel performance, merchant risk concentration, monthly fraud trends, and behavior-based fraud indicators.
 
----
-
 ## Key Findings
 
 - Top 20% of customers account for 89.69% of total fraud exposure, indicating significant concentration risk.
