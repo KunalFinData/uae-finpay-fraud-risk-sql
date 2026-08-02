@@ -2,11 +2,15 @@
 
 UAE FinPay is a fictional company created for this portfolio to simulate a real-world fraud analytics use case for a UAE fintech.
 
+---
+
 ## Executive Summary
 
 This project builds a SQL-based fraud detection and payment analytics pipeline for a UAE fintech, inspired by the fraud monitoring and AML/CFT expectations of the UAE financial sector. Using PostgreSQL, dbt, and Python, the project transforms the IEEE-CIS Fraud Detection dataset into business-ready analytical models that support fraud operations, payment risk monitoring, customer segmentation, and executive reporting.
 
 The solution consists of 8 dbt mart models that answer key fraud analytics questions, including customer risk scoring, payment channel performance, merchant risk concentration, monthly fraud trends, and behavior-based fraud indicators.
+
+---
 
 ## Key Findings
 
@@ -17,6 +21,8 @@ The solution consists of 8 dbt mart models that answer key fraud analytics quest
 - Structuring and transaction velocity patterns are identified using rule-based behavioural detection aligned with UAE AML monitoring principles.
 
 Built for fraud analytics, payment risk operations, and AML-adjacent roles in UAE fintechs and banks.
+
+---
 
 ## Business Problem
 
@@ -32,6 +38,8 @@ A payment platform processing thousands of daily card, wallet, and bank transfer
 Without these insights, fraud investigations become reactive, resources are allocated inefficiently, and reporting to management becomes largely descriptive instead of risk-driven.
 
 This project builds a SQL-powered analytical layer that supports operational fraud monitoring and executive decision-making.
+
+---
 
 ## Data Lineage
 
@@ -80,6 +88,8 @@ GitHub (version controlled, documented, tested)
 | Structuring Alerts | Transactions just below reporting thresholds | AML investigation support |
 | Velocity Alerts | High-frequency transaction anomalies | Early fraud detection |
 
+---
+
 ## Executive Findings
 
 | Finding | Business Impact |
@@ -89,6 +99,8 @@ GitHub (version controlled, documented, tested)
 | Ecommerce merchants show highest fraud concentration | Additional verification should target ecommerce |
 | HIGH_VALUE customers generate 8.7× more fraud transactions | Premium customers require stronger monitoring |
 | Behaviour-based patterns detected | Supports AML investigations and escalation |
+
+---
 
 ## Key Models
 
@@ -102,18 +114,6 @@ GitHub (version controlled, documented, tested)
 | `fct_monthly_fraud_trend` | How is fraud changing over time? |
 | `fct_merchant_category_analysis` | Which merchant categories require attention? |
 | `fct_behavior_risk_flags` | Which behavioural patterns indicate suspicious activity? |
-
-## Model Details
-
-
-## Business Outcomes
-
-- **High-value customer concentration risk:** Top 20% of customers represent 89.69% of total fraud exposure — critical concentration risk requiring enhanced monitoring
-- **Channel fraud insights:** Bank transfer channel shows highest fraud rate at 8.14% in Abu Dhabi vs wallet at 7.40% — contradicts card-first fraud assumptions
-- **Merchant category risk:** Ecommerce merchants show highest fraud concentration by category — informs targeted rule tuning
-- **Behavior-based detection:** Flags structuring patterns (multiple transactions just below thresholds) and velocity anomalies per CBUAE 2026 guidance
-- **Monthly fraud trend analysis:** MoM fraud rate tracking with LAG window function for executive reporting
-- **Segment-level fraud volume:** HIGH_VALUE segment total fraud transactions: 7,175 vs STANDARD segment: 825 — 8.7x higher absolute fraud volume in premium tier
 
 ---
 
@@ -182,10 +182,13 @@ GitHub (version controlled, documented, tested)
 - **Key Metrics:** Structuring flag (multiple transactions just below thresholds), velocity anomaly flag, unusual time/location flag
 - **Business Use:** Compliance with CBUAE behavior-based detection mandates, SAR/STR escalation triggers
 
+---
 
 ## Business Impact
 
 The outputs of this project support fraud teams in making faster, more targeted operational decisions. Customer-level risk scoring helps prioritise review effort toward the highest-risk accounts, while segment-level exposure analysis challenges the assumption that premium customers are inherently low risk. Channel-level performance insights show where fraud controls need to be tuned by payment method and emirate rather than applied as blanket rules. Merchant category analysis highlights where verification steps should be strengthened, especially in high-concentration ecommerce flows. Behaviour-based detection adds a defensible layer for identifying structuring patterns and escalation candidates, supporting more consistent fraud monitoring and regulatory reporting.
+
+---
 
 ## Business Recommendations
 
@@ -195,6 +198,8 @@ The outputs of this project support fraud teams in making faster, more targeted 
 - Route structuring-flagged transactions to manual SAR/STR review rather than automatic decline, consistent with CBUAE’s treatment of these as investigation triggers, not hard blocks.
 - Use the ecommerce concentration finding to justify a targeted step-up authentication rule above a defined AED threshold, rather than a blanket restriction on the category.
 
+---
+
 ## Limitations
 
 - Underlying data is IEEE-CIS Fraud Detection (Kaggle), with a synthetic UAE staging layer applied through AED conversion, emirate distribution, KYC/escalation flags. It does not reflect real production transaction history or actual fraud outcomes.
@@ -202,6 +207,7 @@ The outputs of this project support fraud teams in making faster, more targeted 
 - Risk scores are rule- and pattern-based, not model-driven, so they will not adapt to new fraud patterns without manual rule updates.
 - The false-positive-rate model relies on the source dataset’s fraud labels; a production system would need investigation outcomes fed back in to keep that metric accurate over time.
 - No device fingerprinting, IP/geolocation, or credit bureau (AECB) signals are incorporated, all of which a production CBUAE-compliant system would typically use.
+
 ---
 
 ## Project Structure
