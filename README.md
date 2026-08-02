@@ -260,7 +260,7 @@ See [`COMPLIANCE.md`](COMPLIANCE.md) for full CBUAE 2026 regulatory references i
 
 [View Repository](https://github.com/KunalFinData/uae-finpay-fraud-risk-sql)
 
-**LinkedIn**
+## LinkedIn
 
 [Connect on LinkedIn](https://www.linkedin.com/in/kunalsharma0425)
 
