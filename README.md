@@ -1,38 +1,40 @@
-# UAE FinPay Payment Analytics & Fraud Risk Intelligence Engine
+# UAE FinPay — Payment Analytics & Fraud Risk Intelligence Engine
 
----
+UAE FinPay is a fictional company created for this portfolio to simulate a real-world fraud analytics use case for a UAE fintech.
 
 ## Executive Summary
 
-This project delivers a production-ready fraud detection and payment analytics pipeline for UAE FinPay, addressing CBUAE's 2026 AML/CFT and fraud monitoring mandates. Key outcomes:
+This project builds a SQL-based fraud detection and payment analytics pipeline for a UAE fintech, inspired by the fraud monitoring and AML/CFT expectations of the UAE financial sector. Using PostgreSQL, dbt, and Python, the project transforms the IEEE-CIS Fraud Detection dataset into business-ready analytical models that support fraud operations, payment risk monitoring, customer segmentation, and executive reporting.
 
-- **8 dbt mart models** for fraud risk scoring, customer segmentation, and payment channel intelligence
-- **High-value customer concentration risk identified:** Top 20% of customers represent 89.69% of total fraud exposure
-- **Channel fraud insights:** Bank transfer shows 8.14% fraud rate in Abu Dhabi vs wallet at 7.40% — contradicts card-first fraud assumptions
-- **Behavior-based detection:** Flags structuring patterns and velocity anomalies per CBUAE 2026 guidance
-- **Monthly fraud trend tracking:** MoM change analysis using LAG window function
-- **Compliance-ready:** Aligned with CBUAE Federal Decree-Law No.10/2025 and Cabinet Resolution No.134/2025
+The solution consists of 8 dbt mart models that answer key fraud analytics questions, including customer risk scoring, payment channel performance, merchant risk concentration, monthly fraud trends, and behavior-based fraud indicators.
 
-Built for: Fraud analytics teams, payment risk operations, and AML compliance roles in UAE fintechs and banks.
+## Key Findings
 
----
+- Top 20% of customers account for 89.69% of total fraud exposure, indicating significant concentration risk.
+- Bank Transfer records the highest fraud rate in Abu Dhabi (8.14%) compared with Wallet (7.40%), challenging the assumption that card payments are always the highest-risk channel.
+- The HIGH_VALUE customer segment records 7,175 fraud transactions compared with 825 for the STANDARD segment.
+- Ecommerce merchants represent the highest fraud concentration across merchant categories.
+- Structuring and transaction velocity patterns are identified using rule-based behavioural detection aligned with UAE AML monitoring principles.
+
+Built for fraud analytics, payment risk operations, and AML-adjacent roles in UAE fintechs and banks.
 
 ## Business Problem
 
-UAE FinPay processes thousands of daily payment transactions across card, wallet, and bank transfer channels. The fraud operations team lacks:
+A payment platform processing thousands of daily card, wallet, and bank transfer transactions requires more than transaction-level fraud flags. Fraud teams need to understand:
 
-- **Customer risk scoring** to prioritize high-risk accounts
-- **Payment channel performance analysis** to identify fraud hotspots
-- **Customer segmentation** to understand fraud concentration by value tier
-- **Behavior-based detection** aligned with CBUAE 2026 regulatory guidance
-- **Monthly fraud trend reporting** for executive dashboards and regulatory submissions
+- Which customers present the greatest fraud exposure.
+- Which payment channels generate the highest fraud rates.
+- Whether fraud is concentrated within particular customer segments.
+- Which merchant categories require stronger monitoring.
+- How fraud trends evolve over time.
+- Which behavioural patterns require escalation for investigation.
 
-This project delivers SQL-driven fraud detection, customer risk segmentation, and payment channel intelligence to reduce fraud exposure and improve operational efficiency.
+Without these insights, fraud investigations become reactive, resources are allocated inefficiently, and reporting to management becomes largely descriptive instead of risk-driven.
 
----
-
+This project builds a SQL-powered analytical layer that supports operational fraud monitoring and executive decision-making.
 
 ## Data Lineage
+
 
 Raw Layer (IEEE-CIS Fraud Detection — Kaggle)
 
@@ -64,6 +66,45 @@ GitHub (version controlled, documented, tested)
 - **GitHub** (version control, CI/CD, project documentation)
 
 ---
+
+## Success Metrics (KPIs)
+
+| KPI | Description | Business Use |
+|---|---|---|
+| Customer Risk Score | Fraud risk score (0–100) | Prioritise investigations |
+| Fraud Exposure by Segment | Fraud exposure by customer segment | Identify concentration risk |
+| Fraud Rate by Channel | Fraud % for Card, Wallet & Bank Transfer | Channel optimisation |
+| False Positive Rate | Legitimate transactions incorrectly flagged | Improve detection quality |
+| Monthly Fraud Rate | Month-on-month fraud trend | Executive reporting |
+| Merchant Fraud Rate | Fraud concentration by merchant category | Merchant risk monitoring |
+| Structuring Alerts | Transactions just below reporting thresholds | AML investigation support |
+| Velocity Alerts | High-frequency transaction anomalies | Early fraud detection |
+
+## Executive Findings
+
+| Finding | Business Impact |
+|---|---|
+| Top 20% of customers represent 89.69% of fraud exposure | Monitoring resources should prioritise these customers |
+| Bank Transfer fraud reaches 8.14% in Abu Dhabi | Channel rules require emirate-specific optimisation |
+| Ecommerce merchants show highest fraud concentration | Additional verification should target ecommerce |
+| HIGH_VALUE customers generate 8.7× more fraud transactions | Premium customers require stronger monitoring |
+| Behaviour-based patterns detected | Supports AML investigations and escalation |
+
+## Key Models
+
+| Model | Business Question |
+|---|---|
+| `fct_fraud_risk_scorecard` | Which customers carry the highest fraud risk? |
+| `fct_false_positive_rate` | How accurate are fraud rules across payment channels? |
+| `fct_customer_segments` | How should customers be segmented? |
+| `fct_high_value_fraud_exposure` | Where is fraud exposure concentrated? |
+| `fct_payment_channel_performance` | Which channels perform best and worst? |
+| `fct_monthly_fraud_trend` | How is fraud changing over time? |
+| `fct_merchant_category_analysis` | Which merchant categories require attention? |
+| `fct_behavior_risk_flags` | Which behavioural patterns indicate suspicious activity? |
+
+## Model Details
+
 
 ## Business Outcomes
 
@@ -141,6 +182,26 @@ GitHub (version controlled, documented, tested)
 - **Key Metrics:** Structuring flag (multiple transactions just below thresholds), velocity anomaly flag, unusual time/location flag
 - **Business Use:** Compliance with CBUAE behavior-based detection mandates, SAR/STR escalation triggers
 
+
+## Business Impact
+
+The outputs of this project support fraud teams in making faster, more targeted operational decisions. Customer-level risk scoring helps prioritise review effort toward the highest-risk accounts, while segment-level exposure analysis challenges the assumption that premium customers are inherently low risk. Channel-level performance insights show where fraud controls need to be tuned by payment method and emirate rather than applied as blanket rules. Merchant category analysis highlights where verification steps should be strengthened, especially in high-concentration ecommerce flows. Behaviour-based detection adds a defensible layer for identifying structuring patterns and escalation candidates, supporting more consistent fraud monitoring and regulatory reporting.
+
+## Business Recommendations
+
+- Move the top 20% of customers by fraud exposure to enhanced or continuous monitoring, while keeping the remainder on standard review cycles. This is a resourcing reallocation, not just a reporting flag.
+- Scope the bank transfer rule review to Abu Dhabi specifically. A blanket “bank transfer is risky” policy would over-flag Dubai and Sharjah transactions that do not show the same pattern.
+- Retire the “VIP customer = low risk” assumption in underwriting and onboarding policy. The 8.7x fraud volume gap in the HIGH_VALUE segment argues for equal or greater scrutiny at that tier.
+- Route structuring-flagged transactions to manual SAR/STR review rather than automatic decline, consistent with CBUAE’s treatment of these as investigation triggers, not hard blocks.
+- Use the ecommerce concentration finding to justify a targeted step-up authentication rule above a defined AED threshold, rather than a blanket restriction on the category.
+
+## Limitations
+
+- Underlying data is IEEE-CIS Fraud Detection (Kaggle), with a synthetic UAE staging layer applied through AED conversion, emirate distribution, KYC/escalation flags. It does not reflect real production transaction history or actual fraud outcomes.
+- The pipeline is batch-based through dbt runs, so it supports retrospective analysis and reporting rather than real-time in-transaction blocking.
+- Risk scores are rule- and pattern-based, not model-driven, so they will not adapt to new fraud patterns without manual rule updates.
+- The false-positive-rate model relies on the source dataset’s fraud labels; a production system would need investigation outcomes fed back in to keep that metric accurate over time.
+- No device fingerprinting, IP/geolocation, or credit bureau (AECB) signals are incorporated, all of which a production CBUAE-compliant system would typically use.
 ---
 
 ## Project Structure
@@ -207,27 +268,6 @@ See [`COMPLIANCE.md`](COMPLIANCE.md) for full CBUAE 2026 regulatory references i
 
 ---
 
-## Key Insights (Sample Findings)
-
-| Insight | Business Impact |
-|---------|----------------|
-| **89.69% of fraud exposure in top 20% customers** | Justifies enhanced monitoring for high-value tier — resource allocation priority |
-| **Bank transfer 8.14% fraud rate in Abu Dhabi** | Channel-specific rule tuning needed — bank transfer rules underperforming vs card/wallet |
-| **Ecommerce merchants highest fraud category** | Targeted monitoring for ecommerce transactions — consider additional verification steps |
-| **HIGH_VALUE segment: 7,175 fraud transactions vs STANDARD: 825** | 8.7x higher absolute fraud volume in premium tier — contradicts "low-risk VIP" assumption |
-| **Structuring patterns detected** | Multiple transactions just below AED 50k threshold flagged — potential money laundering indicator per CBUAE guidance |
-
----
-
-## Next Steps
-
-- [ ] Add Power BI dashboard for executive fraud reporting (Project 3 full-stack integration)
-- [ ] Integrate with Project 2 credit risk model for 360° customer risk view
-- [ ] Deploy dbt models to production Azure SQL Database with automated scheduling
-- [ ] Add real-time fraud alerting via Azure Functions + email/SMS notifications
-- [ ] Implement AECB credit bureau data integration for enhanced customer risk scoring
-
----
 
 ## GitHub
 
