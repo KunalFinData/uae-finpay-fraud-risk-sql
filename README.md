@@ -86,18 +86,6 @@ GitHub (version controlled, documented, tested)
 
 ---
 
-## Executive Findings
-
-| Finding | Why It Matters |
-|---|---|
-| Top 20% of customers represent 89.69% of fraud exposure | Monitoring resources should prioritise these customers |
-| Bank Transfer fraud reaches 8.14% in Abu Dhabi | Channel rules require emirate-specific optimisation |
-| Ecommerce merchants show highest fraud concentration | Additional verification should target ecommerce |
-| HIGH_VALUE customers generate 8.7× more fraud transactions | Premium customers require stronger monitoring |
-| Behaviour-based patterns detected | Supports AML investigations and escalation |
-
----
-
 ## Key Models
 
 | Model | Business Question |
